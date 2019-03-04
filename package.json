@@ -1,0 +1,34 @@
+{
+  "name": "adonis-translate",
+  "version": "0.0.1",
+  "description": "This repo is a Client for Google Maps Services from AdonisJs framework",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "copy": "bash build/copy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yariksav/adonis-translate.git"
+  },
+  "keywords": [
+    "adonis",
+    "translate",
+    "google",
+    "adonisjs"
+  ],
+  "author": "Yaroslav Savaryn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yariksav/adonis-translate/issues"
+  },
+  "homepage": "https://github.com/yariksav/adonis-translate#readme",
+  "dependencies": {
+    "@adonisjs/manager": "^1.1.1",
+    "@google-cloud/translate": "^2.1.3"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0",
+    "jest": "^24.1.0"
+  }
+}
