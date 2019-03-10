@@ -8,14 +8,19 @@ class Translator extends Manager {
     this._config = config || {}
     this._config.drivers = this._config.drivers || {}
     this._cacheDrivers = true
+    this._fake = false
     this.extend('google', (config) => {
       const GoogleTranslate = require('./Drivers/GoogleTranslate')
       return new GoogleTranslate(config)
     })
+    this.extend('fake', (config) => {
+      const FakeTranslate = require('./Drivers/FakeTranslate')
+      return new FakeTranslate(config)
+    })
   }
 
   getDefaultDriver () {
-    return this._config.default || 'google'
+    return this._fake ? 'fake' : (this._config.default || 'google')
   }
 
   _makeExtendedDriver(name) {
@@ -26,6 +31,14 @@ class Translator extends Manager {
     return value;
   }
 
+  fake () {
+    this._fake = true
+  }
+
+  restore () {
+    this._fake = false
+  }
+  
   // async translateBundle (text, target) {
   //   const tgt = arrify(target)
   //   const languages = Array.isArray(target) ? target : target.from

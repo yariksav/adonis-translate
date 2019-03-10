@@ -1,9 +1,9 @@
-const { Translate } = require('@google-cloud/translate');
 const BaseDriver = require('./BaseDriver')
 
 class GoogleTranslate extends BaseDriver {
   constructor (config) {
     super(config)
+    const { Translate } = require('@google-cloud/translate')
     this._translator = new Translate(config)
   }
 
@@ -15,7 +15,7 @@ class GoogleTranslate extends BaseDriver {
         return translation
       })
       .catch(err => {
-        // console.error('ERROR:', err);
+        // console.error('ERROR:', err)
       });
   }
 
@@ -26,9 +26,8 @@ class GoogleTranslate extends BaseDriver {
 
   async detect (text) {
     return this._translator.detect(text).then(response => {
-      console.log(response[1].data.detections)
       return response[0]
     })
   }
 }
-module.exports = GoogleTranslate;
+module.exports = GoogleTranslate
