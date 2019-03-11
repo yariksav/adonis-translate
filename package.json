@@ -1,6 +1,6 @@
 {
   "name": "adonis-translate",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This repo is a Client for Google Maps Services from AdonisJs framework",
   "main": "src/index.js",
   "scripts": {

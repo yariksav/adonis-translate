@@ -9,6 +9,10 @@ class BaseDriver {
     const translations = {}
     const promises = []
     for (let lang of languages) {
+      if (source === lang) {
+        translations[lang] = text
+        continue
+      }
       promises.push(this.translate(text, { from: source, to: lang })
         .then((res) => {
           translations[lang] = res
