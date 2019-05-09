@@ -22,6 +22,24 @@ class BaseDriver {
       return translations
     })
   }
+
+  healFirstLetter (source, translation) {
+    if (!source || !translation) {
+      return translation
+    }
+    const firstLetter = source.charAt(0)
+    if (firstLetter === firstLetter.toUpperCase()) {
+      return translation.charAt(0).toUpperCase() + translation.substr(1)
+    } else if (firstLetter === firstLetter.toLowerCase()) {
+      return translation.charAt(0).toLowerCase() + translation.substr(1)
+    }
+    return translation
+  }
+
+  async translate (text, target) {
+    let translation = await this.sendTranslateRequest(text, target)
+    return this.healFirstLetter(text, translation)
+  }
 }
 
 module.exports = BaseDriver

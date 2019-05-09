@@ -21,12 +21,18 @@ describe('main', () => {
 
   it('should translate', async () => {
     let a = await translator.translate('Yes', 'ru')
+    expect(a).toBe('Да')
+  })
+
+  it('should translate', async () => {
+    let a = await translator.translate('yes', 'ru')
     expect(a).toBe('да')
   })
+
   it('should translate bundle', async () => {
     let a = await translator.translateBundle('Yes', ['ru', 'uk'])
     expect(a).toMatchObject({
-      ru: 'да',
+      ru: 'Да',
       uk: 'Так'
     })
   })

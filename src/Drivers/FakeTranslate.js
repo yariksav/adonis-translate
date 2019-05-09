@@ -1,7 +1,8 @@
 const BaseDriver = require('./BaseDriver')
 
 class Fakeranslate extends BaseDriver {
-  async translate (text, target) {
+
+  async sendTranslateRequest (text, target) {
     return text
   }
 

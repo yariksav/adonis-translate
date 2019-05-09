@@ -7,7 +7,7 @@ class GoogleTranslate extends BaseDriver {
     this._translator = new Translate(config)
   }
 
-  async translate (text, target) {
+  async sendTranslateRequest (text, target) {
     return this._translator
       .translate(text, target)
       .then(results => {

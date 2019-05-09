@@ -63,4 +63,16 @@ describe('main', () => {
     }
     translator.restore()
   })
+
+  it('should size of first letter be same as in source', async () => {
+    translator.fake()
+    const prev = translator.sendTranslateRequest
+    translator.sendTranslateRequest = (text) => {
+      return text.toLowerCase()
+    }
+    let a = await translator.translate('Yes')
+    expect(a).toBe('Yes')
+    translator.sendTranslateRequest = prev
+    translator.restore()
+  })
 })
